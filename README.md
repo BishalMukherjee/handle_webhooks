@@ -3,22 +3,23 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+Create and migrate database
 
-* Ruby version
+* rails db:create
+* rails db:migrate
 
-* System dependencies
+Start server
 
-* Configuration
+* rails s
 
-* Database creation
+To create test webhook
 
-* Database initialization
+* curl -X POST -d "webhook[name]=first_hook&webhook[message]=first_hook_created" http://localhost:3000/webhooks
 
-* How to run the test suite
+Start Rails Console
 
-* Services (job queues, cache servers, search engines, etc.)
+* rails c
 
-* Deployment instructions
+Invoke the job
 
-* ...
+* Delayed::Job.last.invoke_job
